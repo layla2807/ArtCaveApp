@@ -22,7 +22,7 @@ struct StartView: View {
                     .frame(width: 300, height: 300)
                     .shadow(radius: 15)
                 Divider()
-                Text("Your creative archive!")
+                Text("Your creative archive.")
                 NavigationLink(destination: MainMenuView()){
                     Text("START")
                         .font(.headline)
