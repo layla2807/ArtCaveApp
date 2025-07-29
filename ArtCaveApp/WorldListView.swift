@@ -9,7 +9,17 @@ import SwiftUI
 
 struct WorldListView: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        HStack {
+            NavigationLink(destination: WorldWritingTab()){
+                Text("+")
+                    .font(.system(size:30))
+                    .padding()
+                    .frame(width: 50)
+                    .background(Color.pink)
+                    .foregroundColor(.white)
+                    .cornerRadius(15)
+            }
+        }
     }
 }
 
