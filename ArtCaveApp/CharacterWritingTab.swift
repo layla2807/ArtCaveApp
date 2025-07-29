@@ -8,8 +8,16 @@
 import SwiftUI
 
 struct CharacterWritingTab: View {
+    @State private var charName = ""
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack{
+            HStack{
+                Text("Name:")
+                TextField("Insert Character Name", text: $charName)
+                
+            }
+            .padding()
+        }
     }
 }
 
