@@ -8,18 +8,25 @@
 import SwiftUI
 
 struct CharacterListView: View {
+    @State private var showCharacter = true
+    
     var body: some View {
-        HStack{
-            NavigationLink(destination: CharacterWritingTab()){
-                Text("+")
-                    .font(.system(size:30))
-                    .padding()
-                    .frame(width: 50)
-                    .background(Color(red: 189/255, green: 173/255, blue: 150/255))
-                    .foregroundColor(.white)
-                    .cornerRadius(15)
+        VStack {
+            HStack{
+                NavigationLink(destination: CharacterWritingTab()){
+                    Text("+")
+                        .font(.system(size:30))
+                        .padding()
+                        .frame(width: 50)
+                        .background(Color(red: 189/255, green: 173/255, blue: 150/255))
+                        .foregroundColor(.white)
+                        .cornerRadius(15)
+                }
+                
             }
-          
+            if showCharacter {
+                CharacterView(charName: "")
+            }
         }
         
             
