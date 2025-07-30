@@ -15,7 +15,7 @@ struct WorldListView: View {
                     .font(.system(size:30))
                     .padding()
                     .frame(width: 50)
-                    .background(Color.pink)
+                    .background(Color(red: 189/255, green: 173/255, blue: 150/255))
                     .foregroundColor(.white)
                     .cornerRadius(15)
             }
