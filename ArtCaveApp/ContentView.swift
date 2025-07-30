@@ -56,4 +56,5 @@ struct StartView: View {
 }
 #Preview {
     StartView()
+        .modelContainer(for: WritingWork.self, inMemory: true)
 }
