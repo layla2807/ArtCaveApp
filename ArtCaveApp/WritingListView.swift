@@ -10,6 +10,7 @@ struct WritingListView: View {
     
     @State private var showNewWork: Bool = false
     @Query var writeWorks: [WritingWork]
+    @Environment(\.modelContext) var modelContext
     
     var body: some View {
         VStack {
@@ -31,12 +32,21 @@ struct WritingListView: View {
                     Text(writingWork.title)
                     
                 }
+                .onDelete(perform: deleteWork)
             }
         }
         .fullScreenCover(isPresented: $showNewWork) {
                     WriteView(writingWork: WritingWork(title: "", workText: ""), showNewWork: $showNewWork)
                 }
     }
+    
+    func deleteWork(at offsets: IndexSet) {
+        for offset in offsets {
+            let writingWork = writeWorks[offset]
+            modelContext.delete(writingWork)
+        }
+    }
+    
 }
 #Preview {
     WritingListView()
