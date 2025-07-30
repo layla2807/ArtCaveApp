@@ -6,12 +6,15 @@
 //
 
 import SwiftUI
+import SwiftData
 
 struct CharacterWritingTab: View {
     @State private var charName = ""
     @State private var backStory = ""
     @State private var Age = ""
-  
+    @Environment(\.modelContext) private var modelContext
+    @Environment(\.dismiss) var dismiss
+    
     var body: some View {
         VStack(alignment:.leading){
             Spacer()
@@ -52,6 +55,12 @@ struct CharacterWritingTab: View {
             HStack{
                 Spacer()
                 Button("Save"){
+                    let newCharacter = Character(name: charName, age: Age, backstory: backStory)
+                                    modelContext.insert(newCharacter)
+                                    charName = ""
+                                    Age = ""
+                                    backStory = ""
+                    dismiss()
                 }
                 .font(.title3)
                 .fontWeight(.bold)
@@ -70,4 +79,5 @@ struct CharacterWritingTab: View {
 
 #Preview {
     CharacterWritingTab()
+        .modelContainer(for: Character.self, inMemory: true)
 }
