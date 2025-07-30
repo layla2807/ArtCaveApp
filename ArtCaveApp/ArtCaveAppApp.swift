@@ -15,6 +15,6 @@ struct ArtCaveAppApp: App {
            //         .modelContainer(for: WritingWork.self)
             }
         }
-        .modelContainer(for: [Character.self, WritingWork.self])
+        .modelContainer(for: [Character.self, WritingWork.self, World.self])
     }
 }
