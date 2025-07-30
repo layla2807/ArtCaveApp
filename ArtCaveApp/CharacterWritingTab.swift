@@ -17,6 +17,19 @@ struct CharacterWritingTab: View {
             Spacer()
                 .frame(height: 50)
             HStack{
+                Spacer()
+                Text("Write Your Character")
+                    .font(.title)
+                    .fontWeight(.bold)
+                    .padding()
+                    .frame(width: 300)
+                    .background(Color(red: 189/255, green: 173/255, blue: 150/255))
+                    .foregroundColor(Color(red: 78/255, green: 57/255, blue: 46/255))
+                    .cornerRadius(15)
+                Spacer()
+            }
+            Spacer()
+            HStack{
                 Text("Name:")
                 TextField("Insert Character Name", text: $charName)
             }
@@ -35,9 +48,20 @@ struct CharacterWritingTab: View {
             TextField("Insert Character Backstory", text: $backStory)
             Spacer()
                 .frame(height: 50)
-            
-           Button("Save"){
-               }
+            Spacer()
+            HStack{
+                Spacer()
+                Button("Save"){
+                }
+                .font(.title3)
+                .fontWeight(.bold)
+                .padding()
+                .frame(width: 150)
+                .background(Color(red: 189/255, green: 173/255, blue: 150/255))
+                .foregroundColor(Color(red: 78/255, green: 57/255, blue: 46/255))
+                .cornerRadius(15)
+                Spacer()
+            }
           
         }
         .padding()
