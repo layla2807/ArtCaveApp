@@ -14,13 +14,12 @@ struct WriteView: View {
     
     var body: some View {
         VStack {
-            Text("Task Title:")
+            Text("Writing")
+                .font(.title)
+            TextField("Type your title here...", text: $writingWork.title, axis: .vertical)
                 .font(.title3)
             
-            TextField("Enter the task description...", text: $writingWork.title, axis: .vertical)
-            
-            Toggle(isOn: $writingWork.isImportant) {
-                Text("Is it important?")
+            TextField("Type here...", text: $writingWork.workText, axis: .vertical)
                 
             Button {
                 addWork()
@@ -28,17 +27,16 @@ struct WriteView: View {
             } label: {
                 Text("Save")
                 }
-            }
         }
         .padding([.leading, .bottom, .trailing], 40.0)
     }
     
     func addWork() {
-        let writeWork = WritingWork(title: writingWork.title, isImportant: writingWork.isImportant)
+        let writeWork = WritingWork(title: writingWork.title, workText: writingWork.workText)
         modelContext.insert(writeWork)
     }
     
 }
 #Preview {
-    WriteView(writingWork: WritingWork(title: "", isImportant: false), showNewWork: .constant(true))
+    WriteView(writingWork: WritingWork(title: "", workText: ""), showNewWork: .constant(true))
 }

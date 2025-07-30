@@ -34,7 +34,7 @@ struct WritingListView: View {
             }
         }
         .fullScreenCover(isPresented: $showNewWork) {
-                    WriteView(writingWork: WritingWork(title: "", isImportant: false), showNewWork: $showNewWork)
+                    WriteView(writingWork: WritingWork(title: "", workText: ""), showNewWork: $showNewWork)
                 }
     }
 }

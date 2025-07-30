@@ -9,11 +9,11 @@ import SwiftData
 @Model
 class WritingWork {
     var title: String
-    var isImportant: Bool
+    var workText: String
     
-    init(title: String, isImportant: Bool) {
+    init(title: String, workText: String) {
         self.title = title
-        self.isImportant = isImportant
+        self.workText = workText
     }
     
 }
