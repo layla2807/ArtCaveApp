@@ -38,4 +38,5 @@ struct CharacterListView: View {
 
 #Preview {
     CharacterListView()
+        .modelContainer(for: Character.self, inMemory: true)
 }

@@ -13,6 +13,7 @@ struct CharacterWritingTab: View {
     @State private var backStory = ""
     @State private var Age = ""
     @Environment(\.modelContext) private var modelContext
+    @Environment(\.dismiss) var dismiss
     
     var body: some View {
         VStack(alignment:.leading){
@@ -59,6 +60,7 @@ struct CharacterWritingTab: View {
                                     charName = ""
                                     Age = ""
                                     backStory = ""
+                    dismiss()
                 }
                 .font(.title3)
                 .fontWeight(.bold)
@@ -77,4 +79,5 @@ struct CharacterWritingTab: View {
 
 #Preview {
     CharacterWritingTab()
+        .modelContainer(for: Character.self, inMemory: true)
 }
