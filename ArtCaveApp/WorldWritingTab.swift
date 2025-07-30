@@ -6,9 +6,12 @@
 //
 
 import SwiftUI
+import SwiftData
 
 struct WorldWritingTab: View {
     
+    @Environment(\.modelContext) private var modelContext
+    @Environment(\.dismiss) var dismiss
     @State private var worldName = ""
     @State private var worldClimate = ""
     @State private var worldCulture = ""
@@ -38,6 +41,14 @@ struct WorldWritingTab: View {
                 .frame(height: 50)
             
            Button("Save"){
+               let newWorld = World(name: worldName, climate: worldClimate, culture: worldCulture)
+
+                               modelContext.insert(newWorld)
+
+                               worldName = ""
+                               worldClimate = ""
+                               worldCulture = ""
+               dismiss()
                }
           
         }
@@ -48,4 +59,5 @@ struct WorldWritingTab: View {
 
 #Preview {
     WorldWritingTab()
+        .modelContainer(for: World.self, inMemory: true)
 }

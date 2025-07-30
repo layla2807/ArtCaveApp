@@ -6,14 +6,16 @@
 //
 
 import SwiftUI
+import SwiftData
 
 struct WorldListView: View {
     
-    @State private var showWorld = true
+    //@State private var showWorld = true
+    @Query var worldList: [World]
     
     var body: some View {
         VStack {
-            HStack {
+           
                 NavigationLink(destination: WorldWritingTab()){
                     Text("+")
                         .font(.system(size:30))
@@ -22,17 +24,32 @@ struct WorldListView: View {
                         .background(Color(red: 189/255, green: 173/255, blue: 150/255))
                         .foregroundColor(.white)
                         .cornerRadius(15)
-                }
             }
-            
-            if showWorld {
-                WorldView(worldName: "")
-            }
+            List(worldList) { item in
 
+                                VStack(alignment: .leading) {
+
+                                    Text("name: \(item.name)")
+
+                                    Text("climate: \(item.climate)")
+
+                                    Text("culture: \(item.culture)")
+
+                                }
+
+                            }
+
+
+
+
+
+
+            
         }
     }
 }
 
 #Preview {
     WorldListView()
+        .modelContainer(for: World.self, inMemory: true)
 }
