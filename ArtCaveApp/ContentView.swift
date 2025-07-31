@@ -52,6 +52,7 @@ struct StartView: View {
                 .padding()
             }
         }
+        .accentColor(Color(red: 78/255, green: 57/255, blue: 46/255))
     }
 }
 #Preview {
