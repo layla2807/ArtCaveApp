@@ -20,16 +20,6 @@ struct CharacterListView: View {
     
     var body: some View {
         ScrollView {
-            Text("CHARACTERS")
-                .font(.largeTitle)
-                .fontWeight(.bold)
-                .foregroundColor(Color(red: 78/255, green: 57/255, blue: 46/255))
-                .padding(.vertical, 12)
-                .frame(maxWidth: .infinity)
-                .background(Color(red: 239/255, green: 233/255, blue: 219/255))
-                .padding(.top, 0)
-                .padding()
-            
             LazyVGrid(columns: columns, spacing: 16, content: {
                 
                 NavigationLink(destination: CharacterWritingTab()) {
