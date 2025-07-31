@@ -11,6 +11,7 @@ import SwiftData
 struct CharacterListView: View {
    // @State private var showCharacter = true
     @Query var charList: [Character]
+    @Environment(\.modelContext) var modelContext
     
     var body: some View {
         VStack {
@@ -23,16 +24,26 @@ struct CharacterListView: View {
                         .foregroundColor(.white)
                         .cornerRadius(15)
             }
-            List(charList) { item in
-                                VStack(alignment: .leading) {
-                                    Text("Name: \(item.name)")
-                                    Text("age: \(item.age)")
-                                    Text("backstory: \(item.backstory)")
-                                }
+            List { ForEach (charList) {item in
+                VStack(alignment: .leading) {
+                    Text("Name: \(item.name)")
+                    Text("age: \(item.age)")
+                    Text("backstory: \(item.backstory)")
+                    
+                }
+            }
+            .onDelete(perform: deleteCharacter)
                             }
         }
         
             
+    }
+    func deleteCharacter(at offsets: IndexSet) {
+        for offset in offsets {
+            let charItem = charList[offset]
+            modelContext.delete(charItem)
+        }
+        
     }
 }
 
