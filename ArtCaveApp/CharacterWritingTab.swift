@@ -32,6 +32,7 @@ struct CharacterWritingTab: View {
                 Spacer()
             }
             Spacer()
+                .frame(height: 50)
             HStack{
                 Text("Name:")
                 TextField("Insert Character Name", text: $charName)
@@ -51,7 +52,7 @@ struct CharacterWritingTab: View {
             TextField("Insert Character Backstory", text: $backStory)
             Spacer()
                 .frame(height: 50)
-            Spacer()
+          
             HStack{
                 Spacer()
                 Button("Save"){
