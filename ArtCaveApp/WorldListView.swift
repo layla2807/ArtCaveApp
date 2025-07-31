@@ -47,6 +47,15 @@ struct WorldListView: View {
                         .frame(maxWidth: .infinity, minHeight: 180)
                         .background(Color(red: 189/255, green: 173/255, blue: 150/255))
                         .cornerRadius(15)
+                        
+                        NavigationLink(destination: WorldEditView(world: item)) {
+                            Text("Edit")
+                                .font(.caption)
+                                .padding(6)
+                                .background(Color.white.opacity(0.8))
+                                .cornerRadius(8)
+                                .padding(8)
+                        }
                     }
                     .contextMenu {
                         Button(role: .destructive) {
