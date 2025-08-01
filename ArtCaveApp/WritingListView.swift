@@ -37,8 +37,25 @@ struct WritingListView: View {
             Spacer()
             List {
                 ForEach(writeWorks) { writingWork in
-                    Text(writingWork.title)
-                    
+                    ZStack(alignment: .topTrailing) {
+                        VStack(alignment: .leading) {
+                            Text(writingWork.title)
+                                .font(.headline)
+                        }
+                        .padding()
+                        .frame(maxWidth: .infinity)
+                        .background(Color.white)
+                        .cornerRadius(15)
+                        
+                        NavigationLink(destination: WriteView(writingWork: writingWork, showNewWork: $showNewWork)) {
+                            Text("Edit")
+                                .font(.caption)
+                                .padding(6)
+                                .background(Color(red: 239/255, green: 233/255, blue: 219/255))
+                                .cornerRadius(6)
+                                .padding(8)
+                        }
+                    }
                 }
                 .onDelete(perform: deleteWork)
             }

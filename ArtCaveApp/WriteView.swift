@@ -14,6 +14,7 @@ struct WriteView: View {
     
     var body: some View {
         VStack {
+            
             Text("Writing")
                 .font(.title)
                 .fontWeight(.bold)
@@ -23,7 +24,9 @@ struct WriteView: View {
                 .foregroundColor(Color(red: 78/255, green: 57/255, blue: 46/255))
                 .cornerRadius(15)
                 .padding(.top, 20)
+            
             Spacer().frame(height: 40)
+            
             TextField("Type your title here...", text: $writingWork.title, axis: .vertical)
                 .font(.title3)
             
@@ -46,12 +49,10 @@ struct WriteView: View {
         }
         .padding([.leading, .trailing])
     }
-    
     func addWork() {
         let writeWork = WritingWork(title: writingWork.title, workText: writingWork.workText)
         modelContext.insert(writeWork)
     }
-    
 }
 #Preview {
     WriteView(writingWork: WritingWork(title: "", workText: ""), showNewWork: .constant(true))

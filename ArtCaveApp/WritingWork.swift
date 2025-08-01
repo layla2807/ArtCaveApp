@@ -15,5 +15,4 @@ class WritingWork {
         self.title = title
         self.workText = workText
     }
-    
 }
